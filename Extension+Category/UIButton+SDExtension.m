@@ -9,6 +9,7 @@
 #import "UIButton+SDExtension.h"
 #import <objc/runtime.h>
 
+static char const * const ObjectTagKey = "ObjectTag";
 static char topNameKey;
 static char rightNameKey;
 static char bottomNameKey;
@@ -66,12 +67,14 @@ static char leftNameKey;
 
 - (void)setCanContinuousTouch:(BOOL)canContinuousTouch
 {
-    self.canContinuousTouch = canContinuousTouch;
+    NSNumber *number = [NSNumber numberWithBool: canContinuousTouch];
+    objc_setAssociatedObject(self, ObjectTagKey, number , OBJC_ASSOCIATION_RETAIN);
 }
 
 - (BOOL)canContinuousTouch {
     
-    return self.canContinuousTouch;
+    NSNumber *number = objc_getAssociatedObject(self, ObjectTagKey);
+    return [number boolValue];
 }
 
 @end

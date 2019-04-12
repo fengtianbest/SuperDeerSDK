@@ -8,6 +8,7 @@
 
 #import "SDQuickCreate.h"
 #import "UIView+SDExtension.h"
+#import <Masonry/Masonry.h>
 
 @implementation SDQuickCreate
 
@@ -109,6 +110,23 @@
     return theImage;
 }
 
++ (UIImage *)getLauchImage {
+
+    CGSize viewSize = [UIScreen mainScreen].bounds.size;
+    NSString *viewOrientation = @"Portrait";
+    NSString *lauchImage = nil;
+    NSArray *imagesDic = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"UILaunchImages"];
+    for (NSDictionary *dic in imagesDic) {
+        
+        CGSize imageSize = CGSizeFromString((dic[@"UILaunchImageSize"]));
+        if (CGSizeEqualToSize(imageSize, viewSize) && [viewOrientation isEqualToString:dic[@"UILaunchImageOrientation"]]) {
+            lauchImage = dic[@"UILaunchImageName"];
+        }
+    }
+    
+    return [UIImage imageNamed:lauchImage];
+}
+
 + (MJRefreshGifHeader *)initMJRefreshGifHeaderWithWithRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock {
     
     MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingBlock:^{
@@ -116,20 +134,26 @@
             refreshingBlock();
         }
     }];
+    
     UIImage *image1 = [UIImage imageNamed:@"header_gif_1.png"];
     UIImage *image2 = [UIImage imageNamed:@"header_gif_2.png"];
     UIImage *image3 = [UIImage imageNamed:@"header_gif_3.png"];
     UIImage *image4 = [UIImage imageNamed:@"header_gif_4.png"];
     UIImage *image5 = [UIImage imageNamed:@"header_gif_5.png"];
     
-    header.gifView.center = header.center;
-    header.gifView.size = CGSizeMake(header.mj_h/2, header.mj_h/2);
-    header.stateLabel.frame = CGRectMake(0, header.gifView.bottom + 3, header.width, 14);
-
     [header setImages:@[image3, image3, image3, image1, image2, image3] forState:MJRefreshStateIdle];
     [header setImages:@[image5, image3, image4, image3] duration:0.8 forState:MJRefreshStateRefreshing];
     [header setImages:@[image3] forState:MJRefreshStateNoMoreData];
     header.lastUpdatedTimeLabel.hidden = YES;
+    
+    [header.gifView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.mas_equalTo(header);
+        make.width.height.mas_equalTo(header.mj_h/2);
+    }];
+    [header.stateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(header.gifView.mas_bottom).offset(5);
+        make.width.mas_equalTo(header);
+    }];
     
     header.stateLabel.font = [UIFont systemFontOfSize:12];
     header.stateLabel.textColor = [UIColor colorWithRed:0.60 green:0.60 blue:0.60 alpha:1.0];
@@ -147,20 +171,26 @@
             refreshingBlock();
         }
     }];
+    
     UIImage *image1 = [UIImage imageNamed:@"header_gif_1.png"];
     UIImage *image2 = [UIImage imageNamed:@"header_gif_2.png"];
     UIImage *image3 = [UIImage imageNamed:@"header_gif_3.png"];
     UIImage *image4 = [UIImage imageNamed:@"header_gif_4.png"];
     UIImage *image5 = [UIImage imageNamed:@"header_gif_5.png"];
     
-    header.gifView.center = header.center;
-    header.gifView.size = CGSizeMake(header.mj_h/2, header.mj_h/2);
-    header.stateLabel.frame = CGRectMake(0, header.gifView.bottom + 3, header.width, 14);
-
     [header setImages:@[image3, image3, image3, image1, image2, image3] forState:MJRefreshStateIdle];
     [header setImages:@[image5, image3, image4, image3] duration:0.8 forState:MJRefreshStateRefreshing];
     [header setImages:@[image3] forState:MJRefreshStateNoMoreData];
     header.lastUpdatedTimeLabel.hidden = YES;
+    
+    [header.gifView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.mas_equalTo(header);
+        make.width.height.mas_equalTo(header.mj_h/2);
+    }];
+    [header.stateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(header.gifView.mas_bottom).offset(5);
+        make.width.mas_equalTo(header);
+    }];
 
     header.stateLabel.font = [UIFont systemFontOfSize:12];
     header.stateLabel.textColor = [UIColor colorWithRed:0.60 green:0.60 blue:0.60 alpha:1.0];

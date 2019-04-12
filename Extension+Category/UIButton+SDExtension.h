@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  YES:可连续点击 NO:每0.5秒可以点击一次
  */
-@property (nonatomic, assign) BOOL canContinuousTouch;
+@property (readwrite) BOOL canContinuousTouch;
 
 /**
  扩大buuton点击范围

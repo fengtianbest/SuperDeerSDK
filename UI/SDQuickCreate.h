@@ -68,8 +68,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (UIImage *)createImageWithColor:(UIColor *)color;
 
+
 /**
- 5.创建下拉刷新
+ 5.获取启动图
+
+ @return 启动图片
+ */
++ (UIImage *)getLauchImage;
+
+/**
+ 6.创建下拉刷新
 
  @param refreshingBlock 下拉事件
  @return header
@@ -77,7 +85,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (MJRefreshGifHeader *)initMJRefreshGifHeaderWithWithRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock;
 
 /**
- 6.创建下拉刷新
+ 7.创建下拉刷新
  
  @param refreshingBlock 下拉事件
  @return header
@@ -88,7 +96,7 @@ NS_ASSUME_NONNULL_BEGIN
                                                      refreshingEndStr:(NSString *)refreshingEndStr;
 
 /**
- 7.创建分割线，默认背景色为0xEEEEEE
+ 8.创建分割线，默认背景色为0xEEEEEE
 
  @param frame frame
  @param view 父视图

@@ -10,28 +10,19 @@
 
 @implementation NSString (SDExtension)
 
-- (BOOL)isEmpty {
-
-    if (self == nil
-        || ![self isKindOfClass:[NSString class]]
-        || self == NULL
-        || [self isKindOfClass:[NSNull class]]
-        ||[self isEqualToString:@""]) {
-        return YES;
-    }
-    else {
-        return NO;
-    }
++ (BOOL)isEmpty:(NSString *)string
+{
+    return string == nil || string.length == 0;
 }
 
-- (CGSize)rectForSize:(CGSize)size font:(UIFont *)font
+- (CGSize)sizeForMaxLimit:(CGSize)size font:(UIFont *)font
 {
-    return [self rectForSize:size font:font maxLines:0];
+    return [self sizeForMaxLimit:size font:font maxLines:0];
 }
 
-- (CGSize)rectForSize:(CGSize)size font:(UIFont *)font maxLines:(NSInteger)lines
+- (CGSize)sizeForMaxLimit:(CGSize)size font:(UIFont *)font maxLines:(NSInteger)lines
 {
-    if ([self isEmpty])
+    if ([NSString isEmpty:self])
     {
         return CGSizeMake(0, 0);
     }
@@ -97,14 +88,14 @@
 
 - (NSString *)validImageUrlString {
     
-    if ([self isEmpty]) {
+    if ([NSString isEmpty:self]) {
         return @"";
     }
     
     if (![self containsString:@"http"]) {
         return [@"https://chaolu.oss-cn-hangzhou.aliyuncs.com/" stringByAppendingString:self];
     }
-
+    
     return self;
 }
 

@@ -291,6 +291,11 @@ static NSString *failedMessage = @"加载失败";
     return [SDQuickCreate createImageWithColor:color];
 }
 
++ (UIImage *)getLauchImage {
+    
+    return [SDQuickCreate getLauchImage];
+}
+
 #pragma mark - MJRefreshGifHeader
 
 + (MJRefreshGifHeader *)initMJRefreshGifHeaderWithWithRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock {

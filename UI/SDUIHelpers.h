@@ -84,6 +84,7 @@
 
 + (UIImageView *)initGraySepLineWithFrame:(CGRect)frame addToView:(UIView *)view;
 + (UIImage *)createImageWithColor:(UIColor *)color;
++ (UIImage *)getLauchImage;
 
 ///-----------------------------------------
 /// @name MJRefreshGifHeader
