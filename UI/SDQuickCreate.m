@@ -43,13 +43,13 @@
     
     UILabel *label = [self initLabelWithBoldFontSize:fontSize textColor:textColor addToView:view];
     label.textAlignment = textAlignment;
-
+    
     return label;
 }
 
 + (UILabel *)initLabelWithBoldFontSize:(CGFloat)fontSize
-                         textColor:(UIColor *)textColor
-                         addToView:(UIView *)view {
+                             textColor:(UIColor *)textColor
+                             addToView:(UIView *)view {
     
     UILabel *label = [[UILabel alloc] init];
     
@@ -62,7 +62,7 @@
 
 + (UIView *)initNoDataViewFromView:(UIView *)view
                           withText:(NSString *)text{
-
+    
     UIView *noDataView = [self initNoDataViewFromView:view withText:text frame:view.bounds];
     
     return noDataView;
@@ -111,7 +111,7 @@
 }
 
 + (UIImage *)getLauchImage {
-
+    
     CGSize viewSize = [UIScreen mainScreen].bounds.size;
     NSString *viewOrientation = @"Portrait";
     NSString *lauchImage = nil;
@@ -191,7 +191,7 @@
         make.top.mas_equalTo(header.gifView.mas_bottom).offset(5);
         make.width.mas_equalTo(header);
     }];
-
+    
     header.stateLabel.font = [UIFont systemFontOfSize:12];
     header.stateLabel.textColor = [UIColor colorWithRed:0.60 green:0.60 blue:0.60 alpha:1.0];
     [header setTitle:refreshingStartStr forState:MJRefreshStateIdle];

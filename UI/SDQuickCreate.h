@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  2.创建无数据视图
-
+ 
  @param view 创建后加到这个view上
  @param text 无数据文案
  @return UIView
@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  3.创建无数据视图
-
+ 
  @param view 创建后加到这个view上
  @param text 无数据文案
  @param frame 在父视图中的位置大小
@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  4.创建单色图片
-
+ 
  @param color 颜色
  @return 图片
  */
@@ -71,14 +71,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  5.获取启动图
-
+ 
  @return 启动图片
  */
 + (UIImage *)getLauchImage;
 
 /**
  6.创建下拉刷新
-
+ 
  @param refreshingBlock 下拉事件
  @return header
  */
@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  8.创建分割线，默认背景色为0xEEEEEE
-
+ 
  @param frame frame
  @param view 父视图
  @return UIImageView

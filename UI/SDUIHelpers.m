@@ -241,13 +241,13 @@ static NSString *failedMessage = @"加载失败";
                          textColor:(UIColor *)textColor
                      textAlignment:(NSTextAlignment)textAlignment
                          addToView:(UIView *)view {
-        
+    
     return [SDQuickCreate initLabelWithFontSize:fontSize textColor:textColor textAlignment:textAlignment addToView:view];
 }
 
 + (UILabel *)initLabelWithBoldFontSize:(CGFloat)fontSize
-                         textColor:(UIColor *)textColor
-                         addToView:(UIView *)view {
+                             textColor:(UIColor *)textColor
+                             addToView:(UIView *)view {
     
     return [SDQuickCreate initLabelWithBoldFontSize:fontSize textColor:textColor addToView:view];
 }

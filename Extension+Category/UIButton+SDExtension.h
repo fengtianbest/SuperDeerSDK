@@ -10,12 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#define defaultInterval 0.5
+
 @interface UIButton (SDExtension)
 
 /**
  YES:可连续点击 NO:每0.5秒可以点击一次
  */
-@property (readwrite) BOOL canContinuousTouch;
+@property (nonatomic, assign) BOOL canContinuousTouch;
 
 /**
  扩大buuton点击范围

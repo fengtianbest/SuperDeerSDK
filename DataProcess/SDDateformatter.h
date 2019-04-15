@@ -37,5 +37,11 @@
 
 - (NSString *)monthBeginDateStringWithString:(NSString *)day;
 - (NSString *)weekBeginDateStringWithString:(NSString *)day;
+- (NSInteger)getWeekDayForDate;
+
+///-----------------------------------------
+/// @name array
+///-----------------------------------------
+- (NSArray *)getSevenTimeAry;
 
 @end

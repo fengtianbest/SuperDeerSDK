@@ -190,4 +190,36 @@ static NSString *defaultDateFormat = @"yyyy-MM-dd";
     }
 }
 
+- (NSInteger)getWeekDayForDate {
+    
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday |
+    NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    NSDate *now = [NSDate date];
+    // 在真机上需要设置区域，才能正确获取本地日期，天朝代码:zh_CN
+    calendar.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
+    comps = [calendar components:unitFlags fromDate:now];
+    
+    return [comps weekday] - 1;
+}
+
+- (NSArray *)getSevenTimeAry {
+    
+    NSMutableArray *weekAry = [NSMutableArray array];
+    NSDate *nowDate = [NSDate date];
+    NSDate *theDate;
+    NSString* str;
+    for (int index = 0; index < 7; index++) {
+        NSTimeInterval  oneDay = 24*60*60*1;  //1天的长度
+        
+        theDate = [nowDate initWithTimeIntervalSinceNow: +oneDay*index];
+        str = [kSDDateformatterInstance stringFromDate:theDate];
+        [weekAry addObject:str];
+    }
+    
+    return weekAry;
+}
+
+
 @end

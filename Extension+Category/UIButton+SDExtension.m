@@ -19,14 +19,17 @@ static char leftNameKey;
 
 - (BOOL)isTouchInside
 {
-    self.userInteractionEnabled = NO;
     self.adjustsImageWhenHighlighted = NO;
     
     // 默认间隔时间
-    double defaultInterval = self.canContinuousTouch ? 0 : 0.5;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(defaultInterval * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.userInteractionEnabled = YES;
-    });
+    if (!self.canContinuousTouch) {
+        
+        self.userInteractionEnabled = NO;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(defaultInterval * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.userInteractionEnabled = YES;
+        });
+    }
+    
     return YES;
 }
 

@@ -95,7 +95,7 @@
     if (![self containsString:@"http"]) {
         return [@"https://chaolu.oss-cn-hangzhou.aliyuncs.com/" stringByAppendingString:self];
     }
-    
+
     return self;
 }
 
