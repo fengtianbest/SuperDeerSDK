@@ -14,8 +14,8 @@
 
 
 static const CGFloat kPadding = 4.f;
-static const CGFloat kLabelFontSize = 16.f;
-static const CGFloat kDetailsLabelFontSize = 12.f;
+static const CGFloat kLabelFontSize = 14.f;
+static const CGFloat kDetailsLabelFontSize = 10.f;
 
 
 @interface SDProgressHUD () {
@@ -137,16 +137,16 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
         self.detailsLabelText = nil;
         self.opacity = 0.8f;
         self.color = nil;
-        self.labelFont = [UIFont boldSystemFontOfSize:kLabelFontSize];
+        self.labelFont = [UIFont systemFontOfSize:kLabelFontSize];
         self.labelColor = [UIColor whiteColor];
-        self.detailsLabelFont = [UIFont boldSystemFontOfSize:kDetailsLabelFontSize];
+        self.detailsLabelFont = [UIFont systemFontOfSize:kDetailsLabelFontSize];
         self.detailsLabelColor = [UIColor whiteColor];
         self.activityIndicatorColor = [UIColor whiteColor];
         self.xOffset = 0.0f;
         self.yOffset = 0.0f;
         self.dimbackground = NO;
         self.margin = 20.0f;
-        self.cornerRadius = 10.0f;
+        self.cornerRadius = 4.0f;
         self.graceTime = 0.0f;
         self.minShowTime = 0.0f;
         self.removeFromSuperViewOnHide = NO;
@@ -453,7 +453,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
             // Update to indeterminate indicator
             [indicator removeFromSuperview];
             self.indicator = [[UIActivityIndicatorView alloc]
-                                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+                              initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
             [(UIActivityIndicatorView *)indicator startAnimating];
             [self addSubview:indicator];
         }
