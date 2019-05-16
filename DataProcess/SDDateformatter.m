@@ -190,16 +190,15 @@ static NSString *defaultDateFormat = @"yyyy-MM-dd";
     }
 }
 
-- (NSInteger)getWeekDayForDate {
+- (NSInteger)getWeekDayForDate:(NSDate *)date {
     
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday |
     NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
-    NSDate *now = [NSDate date];
     // 在真机上需要设置区域，才能正确获取本地日期，天朝代码:zh_CN
     calendar.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
-    comps = [calendar components:unitFlags fromDate:now];
+    comps = [calendar components:unitFlags fromDate:date];
     
     return [comps weekday] - 1;
 }

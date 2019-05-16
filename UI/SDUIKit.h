@@ -18,4 +18,3 @@
 #import "UITextView+SDPlaceHolder.h"
 
 #import "SDDateformatter.h"
-#import "SDLocationManager.h"

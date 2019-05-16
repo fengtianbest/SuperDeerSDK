@@ -37,7 +37,7 @@
 
 - (NSString *)monthBeginDateStringWithString:(NSString *)day;
 - (NSString *)weekBeginDateStringWithString:(NSString *)day;
-- (NSInteger)getWeekDayForDate;
+- (NSInteger)getWeekDayForDate:(NSDate *)date;
 
 ///-----------------------------------------
 /// @name array
