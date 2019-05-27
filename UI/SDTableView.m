@@ -173,9 +173,14 @@
         self.mj_footer.hidden = NO;
         if (models.count < self.row) {
             [self endRefreshingWithNoMoreData];
+            if (models.count > 0) {
+                // 无数据不刷新
+                [self reloadData];
+            }
         }
         else {
             [self endRefreshing];
+            [self reloadData];
         }
         
         _noDataView.hidden = YES;
@@ -188,9 +193,10 @@
         if (!_models) {
             _models = [[NSMutableArray alloc] init];
         }
+        
+        [self reloadData];
     }
     
-    [self reloadData];
     
     if ([self.mj_header isRefreshing]) {
         
@@ -222,6 +228,7 @@
     if (_hasRefreshFooter) {
         [self.mj_footer resetNoMoreData];
     }
+    [self reloadData];
 }
 
 #pragma mark - Get
@@ -252,7 +259,7 @@
                 [self.heightArray removeAllObjects];
             }
         }];
-
+        
         self.mj_header = header;
     }
     

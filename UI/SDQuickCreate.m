@@ -82,7 +82,7 @@
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, imageView.bottom + 10, noDataView.width, 14)];
     label.font = [UIFont systemFontOfSize:14];
-    label.textColor = [UIColor colorWithRed:0.60 green:0.60 blue:0.60 alpha:1.00];
+    label.textColor = [UIColor colorWithRed:0.80 green:0.80 blue:0.80 alpha:1.00];
     label.text = text;
     label.numberOfLines = 0;
     label.textAlignment = NSTextAlignmentCenter;
