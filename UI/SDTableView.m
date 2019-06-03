@@ -183,7 +183,9 @@
             [self reloadData];
         }
         
-        _noDataView.hidden = YES;
+        if (_noDataView) {
+            _noDataView.hidden = YES;
+        }
     }
     else {
         
@@ -227,7 +229,14 @@
     }
     if (_hasRefreshFooter) {
         [self.mj_footer resetNoMoreData];
+        self.mj_footer.hidden = YES;
     }
+    
+    if (_noDataView) {
+        _noDataView.hidden = YES;
+    }
+    
+    _page = 1;
     [self reloadData];
 }
 
