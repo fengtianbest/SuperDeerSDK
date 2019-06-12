@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  点击标签
-
+ 
  @param index 点击的索引
  */
 - (void)sectionSelectWithIndex:(NSInteger)index;
@@ -55,17 +55,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  1.刷新数据
-
+ 
  @param array 标签标题数组
  */
 - (void)reloadWithTitles:(NSArray <NSString *>*)array;
 
 /**
  2.更新标签
-
+ 
  @param index 需要的标签索引
  */
 - (void)selectWithIndex:(NSInteger)index;
+
+/**
+ 3.刷新title，对现有title的文字进行更改时使用此方法
+ 
+ @param array 标签标题数组
+ */
+- (void)refreshWithTitles:(NSArray <NSString *>*)array;
 
 @end
 

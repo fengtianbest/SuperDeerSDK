@@ -185,11 +185,13 @@
         
         if (_noDataView) {
             _noDataView.hidden = YES;
+            self.scrollEnabled = YES;
         }
     }
     else {
         
         self.noDataView.hidden = NO;
+        self.scrollEnabled = NO;
         
         // 无数据也需要刷新tableview，保证contentSize的正确性
         if (!_models) {
@@ -234,6 +236,7 @@
     
     if (_noDataView) {
         _noDataView.hidden = YES;
+        self.scrollEnabled = YES;
     }
     
     _page = 1;

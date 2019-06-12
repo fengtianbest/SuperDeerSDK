@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
 spec.name         = "SuperDeerSDK"
-spec.version      = "0.1.5"
+spec.version      = "0.1.6"
 spec.summary      = "commen UI class"
 spec.description  = " UI Extension+Category and DataProcess"
 

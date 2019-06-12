@@ -37,7 +37,7 @@
 
 /**
  创建标签按钮
-
+ 
  @param array 标签title数组
  */
 - (void)recreateButotnWithArray:(NSArray *)array {
@@ -53,7 +53,7 @@
     else {
         width = _sectionWidth;
     }
-
+    
     CGRect frame = CGRectMake(0, 0, width, self.height);
     for (NSInteger index = 0; index < array.count; index++) {
         
@@ -123,6 +123,15 @@
     }
 }
 
+- (void)refreshButotnWithArray:(NSArray *)array {
+    
+    for (NSInteger index = 0; index < array.count && index < _buttonArray.count; index++) {
+        
+        UIButton *button = _buttonArray[index];
+        [button setTitle:array[index] forState:UIControlStateNormal];
+    }
+}
+
 - (void)selectAction:(id)sender {
     
     UIButton *button = (UIButton *)sender;
@@ -144,7 +153,7 @@
     if (_selectIndex != index) {
         // 选项变动
         UIButton *button = _buttonArray[index];
-
+        
         _selectButton.titleLabel.font = self.unSelectTitleFont;
         [_selectButton setTitleColor:self.unSelectTitleColor forState:UIControlStateNormal];
         button.titleLabel.font = self.selectTitleFont;
@@ -160,8 +169,13 @@
 }
 
 - (void)reloadWithTitles:(NSArray <NSString *>*)array {
-
+    
     [self recreateButotnWithArray:array];
+}
+
+- (void)refreshWithTitles:(NSArray <NSString *>*)array {
+    
+    [self refreshButotnWithArray:array];
 }
 
 @end
