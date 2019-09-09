@@ -33,6 +33,25 @@ static char leftNameKey;
     return YES;
 }
 
++(void)load{
+    
+    [super load];
+    Method aMethod = class_getInstanceMethod(self, @selector(pointInside:withEvent:));
+    Method bMethod = class_getInstanceMethod(self, @selector(clPointInside:withEvent:));
+    method_exchangeImplementations(aMethod, bMethod);
+}
+
+- (BOOL)clPointInside:(CGPoint)point withEvent:(UIEvent *)event{
+
+    CGRect rect = [self enlargedRect];
+    
+    if (CGRectEqualToRect(rect, self.bounds)){
+        return [self clPointInside:point withEvent:event];
+    }else{
+        return CGRectContainsPoint(rect, point);
+    }
+}
+
 - (void)setEnlargeEdgeWithTop:(CGFloat)top right:(CGFloat)right bottom:(CGFloat)bottom left:(CGFloat)left
 {
     objc_setAssociatedObject(self, &topNameKey, [NSNumber numberWithFloat:top], OBJC_ASSOCIATION_COPY_NONATOMIC);
