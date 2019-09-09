@@ -104,6 +104,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (UIImageView *)initGraySepLineWithFrame:(CGRect)frame addToView:(UIView *)view;
 
+/**
+ 9.创建分割线，默认背景色为0xEEEEEE
+ 
+ @param content 文本内容
+ @param LineSpacing 行间距
+ @param ParagraphSpacing 段间距
+ @return UIImageView
+ */
++(NSMutableAttributedString *)setLineSpacingAndParagraphSpacingWithContent:(NSString *)content LineSpacing:(CGFloat )LineSpacing ParagraphSpacing:(CGFloat)ParagraphSpacing;
+
 @end
 
 NS_ASSUME_NONNULL_END

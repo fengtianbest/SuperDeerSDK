@@ -210,4 +210,16 @@
     return line;
 }
 
++(NSMutableAttributedString *)setLineSpacingAndParagraphSpacingWithContent:(NSString *)content LineSpacing:(CGFloat )LineSpacing ParagraphSpacing:(CGFloat)ParagraphSpacing{
+    
+    NSMutableAttributedString * attributedString = [[NSMutableAttributedString alloc] initWithString:content];
+    NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:LineSpacing];     //行间距
+    [paragraphStyle setParagraphSpacing:ParagraphSpacing];//段间距
+    [attributedString addAttribute:NSParagraphStyleAttributeName
+                             value:paragraphStyle
+                             range:NSMakeRange(0, [content length])];
+    return attributedString;
+}
+
 @end

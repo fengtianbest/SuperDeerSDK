@@ -96,4 +96,6 @@
                                                         refreshingStr:(NSString *)refreshingStr
                                                      refreshingEndStr:(NSString *)refreshingEndStr;
 
++(NSMutableAttributedString *)setLineSpacingAndParagraphSpacingWithContent:(NSString *)content LineSpacing:(CGFloat )LineSpacing ParagraphSpacing:(CGFloat)ParagraphSpacing;
+
 @end

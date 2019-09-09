@@ -311,4 +311,9 @@ static NSString *failedMessage = @"加载失败";
                                                        refreshingEndStr:refreshingEndStr];
 }
 
++(NSMutableAttributedString *)setLineSpacingAndParagraphSpacingWithContent:(NSString *)content LineSpacing:(CGFloat )LineSpacing ParagraphSpacing:(CGFloat)ParagraphSpacing{
+    
+    return [SDQuickCreate setLineSpacingAndParagraphSpacingWithContent:content LineSpacing:LineSpacing ParagraphSpacing:ParagraphSpacing];
+}
+
 @end

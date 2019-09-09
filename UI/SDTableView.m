@@ -265,11 +265,7 @@
             if (self.sdDelegate && [self.sdDelegate respondsToSelector:@selector(sdTableViewStartRefresh:)]) {
                 [self.sdDelegate sdTableViewStartRefresh:self];
             }
-            [self.mj_footer resetNoMoreData];
-            [self.models removeAllObjects];
-            if (self.heightArray) {
-                [self.heightArray removeAllObjects];
-            }
+            [self removeAllModels];
         }];
         
         self.mj_header = header;
