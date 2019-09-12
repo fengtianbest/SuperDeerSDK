@@ -55,6 +55,12 @@
         
         _models = [[NSMutableArray alloc] init];
         _cellIdentifier = identifier;
+        self.delegate = self;
+        self.dataSource = self;
+        if (@available(iOS 11.0, *)) {
+            self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
+
         [self registerNib:nib forCellReuseIdentifier:_cellIdentifier];
         
         self.row = 10;

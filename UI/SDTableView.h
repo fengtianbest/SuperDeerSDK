@@ -61,7 +61,7 @@ typedef void (^CellDidSelect)(id cell, id model, NSIndexPath * indexPath);
  @param identifier identifier
  @return view
  */
-//- (instancetype)initWithNib:(nullable UINib *)nib forCellReuseIdentifier:(NSString *)identifier;
+- (instancetype)initWithNib:(nullable UINib *)nib forCellReuseIdentifier:(NSString *)identifier;
 
 /**
  3.加载数据源, 刷新数据
