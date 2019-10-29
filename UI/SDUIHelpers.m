@@ -316,4 +316,14 @@ static NSString *failedMessage = @"加载失败";
     return [SDQuickCreate setLineSpacingAndParagraphSpacingWithContent:content LineSpacing:LineSpacing ParagraphSpacing:ParagraphSpacing];
 }
 
++ (NSMutableAttributedString *)initMutableAttributedWithString:(NSString *)string attributes:(NSArray<NSDictionary *> *)attributeArray attributeTexts:(NSArray<NSString *> *)attributeTextArray {
+        
+    return [SDQuickCreate initMutableAttributedWithString:string attributes:attributeArray attributeTexts:attributeTextArray];
+}
+
++ (NSMutableAttributedString *)initMutableAttributedWithString:(NSString *)string attributes:(NSArray<NSDictionary *> *)attributeArray attributeRanges:(NSArray<NSString *> *)attributeRangeArray {
+ 
+    return [SDQuickCreate initMutableAttributedWithString:string attributes:attributeArray attributeRanges:attributeRangeArray];
+}
+
 @end

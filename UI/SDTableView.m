@@ -13,7 +13,6 @@
 @interface SDTableView () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSMutableArray *heightArray;
-@property (nonatomic, strong) UIView *noDataView;
 @property (nonatomic, strong) NSString *cellIdentifier;
 @property (nonatomic, assign) NSInteger page;
 
@@ -254,7 +253,23 @@
 - (UIView *)noDataView {
     
     if (!_noDataView) {
-        _noDataView = [SDUIHelpers initNoDataViewFromView:self withText:self.noDataTipsText];
+        if (_noDataType == SDTableViewNoDataTypeOnlyWord) {
+            
+            _noDataView = [[UIView alloc] initWithFrame:self.bounds];
+            [self addSubview:_noDataView];
+            
+            UILabel *label = [SDUIHelpers initLabelWithFontSize:14
+                                                      textColor:[UIColor colorWithRed:0.80 green:0.80 blue:0.80 alpha:1.00]
+                                                  textAlignment:NSTextAlignmentCenter addToView:_noDataView];
+            label.numberOfLines = 0;
+            label.text = self.noDataTipsText;
+            [label sizeToFit];
+            label.center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
+        }
+        else {
+            
+            _noDataView = [SDUIHelpers initNoDataViewFromView:self withText:self.noDataTipsText];
+        }
     }
     
     return _noDataView;

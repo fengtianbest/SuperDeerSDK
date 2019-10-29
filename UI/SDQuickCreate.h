@@ -114,6 +114,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(NSMutableAttributedString *)setLineSpacingAndParagraphSpacingWithContent:(NSString *)content LineSpacing:(CGFloat )LineSpacing ParagraphSpacing:(CGFloat)ParagraphSpacing;
 
+/// 根据string生成富文本
+/// @param string 源String
+/// /// @param attributeArray 需要改变的效果部分，和attributeTextArray一一对应
+/// @param attributeTextArray 需要改变文字效果的string部分
++ (NSMutableAttributedString *)initMutableAttributedWithString:(NSString *)string
+                                                    attributes:(NSArray<NSDictionary *> *)attributeArray
+                                                attributeTexts:(NSArray<NSString *> *)attributeTextArray;
+
+/// 根据string生成富文本
+/// @param string 源String
+/// /// @param attributeArray 需要改变的效果部分，和attributeTextArray一一对应
+/// @param attributeRangeArray 需要改变文字效果的range部分 range转Sring方法: NSString * rangeStr = NSStringFromRange(range);
++ (NSMutableAttributedString *)initMutableAttributedWithString:(NSString *)string
+                                                    attributes:(NSArray<NSDictionary *> *)attributeArray
+                                               attributeRanges:(NSArray<NSString *> *)attributeRangeArray;
 @end
 
 NS_ASSUME_NONNULL_END

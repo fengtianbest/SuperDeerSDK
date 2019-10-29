@@ -14,6 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void (^CellConfigure)(id cell, id model, NSIndexPath * indexPath);
 typedef void (^CellDidSelect)(id cell, id model, NSIndexPath * indexPath);
 
+typedef NS_ENUM(NSInteger, SDTableViewNoDataType) {
+    
+    SDTableViewNoDataTypeDefault = 0,   // 默认带图片
+    SDTableViewNoDataTypeOnlyWord = 1,  // 仅文字
+};
+
 @protocol SDTableViewDelegate;
 
 @interface SDTableView : UITableView
@@ -45,6 +51,10 @@ typedef void (^CellDidSelect)(id cell, id model, NSIndexPath * indexPath);
 @property (nonatomic, copy) NSString *noDataTipsText;
 /** 8.数据源 */
 @property (nonatomic, strong) NSMutableArray *models;
+/** 9.空消息视图 */
+@property (nonatomic, strong) UIView *noDataView;
+/** 10.空消息视图类型 */
+@property (nonatomic, assign) SDTableViewNoDataType noDataType;
 
 /**
  1.定义方法

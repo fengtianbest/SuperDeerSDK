@@ -97,5 +97,11 @@
                                                      refreshingEndStr:(NSString *)refreshingEndStr;
 
 +(NSMutableAttributedString *)setLineSpacingAndParagraphSpacingWithContent:(NSString *)content LineSpacing:(CGFloat )LineSpacing ParagraphSpacing:(CGFloat)ParagraphSpacing;
++ (NSMutableAttributedString *)initMutableAttributedWithString:(NSString *)string
+                                                    attributes:(NSArray<NSDictionary *> *)attributeArray
+                                                attributeTexts:(NSArray<NSString *> *)attributeTextArray;
++ (NSMutableAttributedString *)initMutableAttributedWithString:(NSString *)string
+                                                    attributes:(NSArray<NSDictionary *> *)attributeArray
+                                               attributeRanges:(NSArray<NSString *> *)attributeRangeArray;
 
 @end

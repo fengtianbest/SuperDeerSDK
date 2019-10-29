@@ -9,6 +9,7 @@
 #import "SDQuickCreate.h"
 #import "UIView+SDExtension.h"
 #import <Masonry/Masonry.h>
+#import "NSString+SDExtension.h"
 
 @implementation SDQuickCreate
 
@@ -219,6 +220,42 @@
     [attributedString addAttribute:NSParagraphStyleAttributeName
                              value:paragraphStyle
                              range:NSMakeRange(0, [content length])];
+    return attributedString;
+}
+
++ (NSMutableAttributedString *)initMutableAttributedWithString:(NSString *)string attributes:(NSArray<NSDictionary *> *)attributeArray attributeTexts:(NSArray<NSString *> *)attributeTextArray {
+    
+    if ([NSString isEmpty:string]) {
+        return [[NSMutableAttributedString alloc] initWithString:@""];
+    }
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string];
+    for (NSInteger index = 0; index < attributeTextArray.count && index < attributeArray.count; index++) {
+        
+        NSString *attributeText = [attributeTextArray objectAtIndex:index];
+        NSRange range = [string rangeOfString:attributeText];
+        NSDictionary *attribute = [attributeArray objectAtIndex:index];
+        [attributedString addAttributes:attribute range:range];
+    }
+    
+    return attributedString;
+}
+
++ (NSMutableAttributedString *)initMutableAttributedWithString:(NSString *)string attributes:(NSArray<NSDictionary *> *)attributeArray attributeRanges:(NSArray<NSString *> *)attributeRangeArray {
+
+    if ([NSString isEmpty:string]) {
+        return [[NSMutableAttributedString alloc] initWithString:@""];
+    }
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string];
+    for (NSInteger index = 0; index < attributeRangeArray.count && index < attributeArray.count; index++) {
+        
+        NSString *attributeRangeString = [attributeRangeArray objectAtIndex:index];
+        NSRange range = NSRangeFromString(attributeRangeString);
+        NSDictionary *attribute = [attributeArray objectAtIndex:index];
+        [attributedString addAttributes:attribute range:range];
+    }
+    
     return attributedString;
 }
 
