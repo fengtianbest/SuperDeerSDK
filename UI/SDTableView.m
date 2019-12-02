@@ -9,6 +9,7 @@
 #import "SDTableView.h"
 #import "MJRefresh.h"
 #import "SDUIHelpers.h"
+#import "NSString+SDExtension.h"
 
 @interface SDTableView () <UITableViewDelegate, UITableViewDataSource>
 
@@ -190,13 +191,17 @@
         
         if (_noDataView) {
             _noDataView.hidden = YES;
-            self.scrollEnabled = YES;
+            if (!_hasRefreshGifHeader) {
+                self.scrollEnabled = YES;
+            }
         }
     }
     else {
         
         self.noDataView.hidden = NO;
-        self.scrollEnabled = NO;
+        if (!_hasRefreshGifHeader) {
+            self.scrollEnabled = NO;
+        }
         
         // 无数据也需要刷新tableview，保证contentSize的正确性
         if (!_models) {
@@ -241,7 +246,9 @@
     
     if (_noDataView) {
         _noDataView.hidden = YES;
-        self.scrollEnabled = YES;
+        if (!_hasRefreshGifHeader) {
+            self.scrollEnabled = YES;
+        }
     }
     
     _page = 1;
@@ -268,7 +275,12 @@
         }
         else {
             
-            _noDataView = [SDUIHelpers initNoDataViewFromView:self withText:self.noDataTipsText];
+            if ([NSString isEmpty:self.noDataImageName]) {
+                _noDataView = [SDUIHelpers initNoDataViewFromView:self withText:self.noDataTipsText];
+            }
+            else {
+                _noDataView = [SDUIHelpers initNoDataViewFromView:self withText:self.noDataTipsText frame:self.bounds imageName:self.noDataImageName];
+            }
         }
     }
     

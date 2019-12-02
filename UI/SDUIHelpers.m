@@ -278,6 +278,14 @@ static NSString *failedMessage = @"加载失败";
     return [SDQuickCreate initNoDataViewFromView:view withText:text frame:frame];
 }
 
++ (UIView *)initNoDataViewFromView:(UIView *)view
+                          withText:(NSString *)text
+                             frame:(CGRect)frame
+                         imageName:(NSString *)imageName {
+    
+    return [SDQuickCreate initNoDataViewFromView:view withText:text frame:frame imageName:imageName];
+}
+
 #pragma mark - other
 
 + (UIImageView *)initGraySepLineWithFrame:(CGRect)frame
@@ -317,12 +325,12 @@ static NSString *failedMessage = @"加载失败";
 }
 
 + (NSMutableAttributedString *)initMutableAttributedWithString:(NSString *)string attributes:(NSArray<NSDictionary *> *)attributeArray attributeTexts:(NSArray<NSString *> *)attributeTextArray {
-        
+    
     return [SDQuickCreate initMutableAttributedWithString:string attributes:attributeArray attributeTexts:attributeTextArray];
 }
 
 + (NSMutableAttributedString *)initMutableAttributedWithString:(NSString *)string attributes:(NSArray<NSDictionary *> *)attributeArray attributeRanges:(NSArray<NSString *> *)attributeRangeArray {
- 
+    
     return [SDQuickCreate initMutableAttributedWithString:string attributes:attributeArray attributeRanges:attributeRangeArray];
 }
 

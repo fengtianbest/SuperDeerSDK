@@ -55,6 +55,8 @@ typedef NS_ENUM(NSInteger, SDTableViewNoDataType) {
 @property (nonatomic, strong) UIView *noDataView;
 /** 10.空消息视图类型 */
 @property (nonatomic, assign) SDTableViewNoDataType noDataType;
+/** 11.空消息视图图片名称 */
+@property (nonatomic, strong) NSString *noDataImageName;
 
 /**
  1.定义方法

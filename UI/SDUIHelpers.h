@@ -55,6 +55,10 @@
 + (UIView *)initNoDataViewFromView:(UIView *)view
                           withText:(NSString *)text
                              frame:(CGRect)frame;
++ (UIView *)initNoDataViewFromView:(UIView *)view
+                          withText:(NSString *)text
+                             frame:(CGRect)frame
+                         imageName:(NSString *)imageName;
 
 ///-----------------------------------------
 /// @name label

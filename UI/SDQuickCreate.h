@@ -60,6 +60,10 @@ NS_ASSUME_NONNULL_BEGIN
                           withText:(NSString *)text
                              frame:(CGRect)frame;
 
++ (UIView *)initNoDataViewFromView:(UIView *)view
+                          withText:(NSString *)text
+                             frame:(CGRect)frame
+                         imageName:(NSString *)imageName;
 /**
  4.创建单色图片
  

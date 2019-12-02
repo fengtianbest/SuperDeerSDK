@@ -73,12 +73,27 @@
                           withText:(NSString *)text
                              frame:(CGRect)frame {
     
+    UIView *noDataView = [self initNoDataViewFromView:view withText:text frame:view.bounds imageName:@""];
+    
+    return noDataView;
+}
+
++ (UIView *)initNoDataViewFromView:(UIView *)view
+                          withText:(NSString *)text
+                             frame:(CGRect)frame
+                         imageName:(NSString *)imageName {
+    
     UIView *noDataView = [[UIView alloc] initWithFrame:frame];
     noDataView.backgroundColor = [UIColor whiteColor];
     [view addSubview:noDataView];
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((noDataView.width - 120)/2, noDataView.height/2 - 120, 120, 120)];
-    imageView.image = [UIImage imageNamed:@"sd_noData.png"];
+    if ([NSString isEmpty:imageName]) {
+        imageView.image = [UIImage imageNamed:@"sd_noData.png"];
+    }
+    else {
+        imageView.image = [UIImage imageNamed:imageName];
+    }
     [noDataView addSubview:imageView];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, imageView.bottom + 10, noDataView.width, 14)];
@@ -242,7 +257,7 @@
 }
 
 + (NSMutableAttributedString *)initMutableAttributedWithString:(NSString *)string attributes:(NSArray<NSDictionary *> *)attributeArray attributeRanges:(NSArray<NSString *> *)attributeRangeArray {
-
+    
     if ([NSString isEmpty:string]) {
         return [[NSMutableAttributedString alloc] initWithString:@""];
     }
