@@ -73,7 +73,7 @@
                           withText:(NSString *)text
                              frame:(CGRect)frame {
     
-    UIView *noDataView = [self initNoDataViewFromView:view withText:text frame:view.bounds imageName:@""];
+    UIView *noDataView = [self initNoDataViewFromView:view withText:text frame:frame imageName:@""];
     
     return noDataView;
 }
